@@ -1,17 +1,17 @@
 {
-    "name": "amclab/disorder",
-    "description": "Bidirectional data masking",
-    "authors": [
-        {
-            "name": "Federico Torrisi",
-            "email": "federico@amcweb.it"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "AmcLab\\Disorder\\": "src/"
-        }
+  "name": "amclab/disorder",
+  "description": "Bidirectional data masking",
+  "authors": [{
+    "name": "Federico Torrisi",
+    "email": "federico@amcweb.it"
+  }],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "AmcLab\\Disorder\\": "src/"
     }
+  }
 }
