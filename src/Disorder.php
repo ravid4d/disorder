@@ -88,7 +88,7 @@ class Disorder {
             'shuffled' => $shuffled,
         ];
 
-        $this->localKey = hash('md5', ($key === null ? base64_decode(substr(env('APP_KEY'),7)) : $key));
+        $this->localKey = hash('md5', ($key === null ? base64_decode(substr(config('app.key'),7)) : $key));
         $this->indexKey = hash('md5', $this->localKey);
 
         return $this;

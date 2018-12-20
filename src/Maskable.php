@@ -45,6 +45,66 @@ class Maskable {
         return $final;
     }
 
+    // TODO: bozza (incompleta e da testare) per sostituire il vecchio index() ed eliminare translate()
+
+    // protected function index(string $input, array $config = [1,1]) : string {
+
+    //     [$add, $skip] = $config;
+    //     $indexKey = $this->injected->getIndexKey();
+    //     $dictionary = $this->injected->getDictionary('original');
+
+    //     $result = '';
+
+    //     // appiattisco il dizionario
+    //     foreach(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($dictionary)) as $one) {
+    //         $flattenedDictionary[] = $one;
+    //     }
+
+    //     // scorro ciascun carattere della stringa $input
+    //     for ($i = 0; $i < mb_strlen($input); $i++) {
+
+    //         $group = 0;
+    //         $at = 0;
+    //         $currentChar = mb_strtolower(mb_substr($input, $i, 1));
+
+    //         // cerco il carattere corrente
+    //         foreach($flattenedDictionary as $idx => $block) {
+
+    //             $position = mb_strpos($block, $currentChar);
+
+    //             // se lo trovo, memorizzo la posizione e fermo il ciclo
+    //             if ($position !== false) {
+
+    //                 // aggiungo il primo parametro di config all'indice
+    //                 $group = $idx + $add;
+
+    //                 // riduco la posizione ad un valore massimo di 4 bit
+    //                 $at = $position % 16;
+
+    //                 break;
+    //             }
+    //         }
+
+    //         // creo il valore di base (gruppo spostato a sx di 4 bit + posizione "ridotta" a 4 bit)
+    //         $base = ($group << 4) + $at;
+
+    //         // prendo il valore della chiave indice alla posizione corrente
+    //         $keyValue = hexdec(substr($indexKey, $i % strlen($indexKey), 1));
+
+    //         // costruisco il valore finale sommando base, keyValue e posizione corrente
+    //         // moltiplicata per il secondo parametro di config
+    //         $final = $base + $keyValue + ($i*$skip);
+
+    //         // e lo concateno
+    //         $result .= $final ? mb_chr($final) : chr(0);
+
+    //         // dump(str_pad(decbin($final), 16, '0', STR_PAD_LEFT));
+
+    //     }
+
+    //     return $result;
+    // }
+
     protected function translate(string $list, string $search, int $index = null) {
         $position = mb_strpos($list, $search);
         return $position !== false ? ($index ?? $position) : false;
